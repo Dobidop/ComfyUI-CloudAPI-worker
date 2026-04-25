@@ -1,0 +1,6 @@
+{
+  "api_key": "PASTE_YOUR_KEY_FROM_https_platform.comfy.org_profile_api-keys",
+  "base_url": "https://cloud.comfy.org",
+  "cached_checkpoints": [],
+  "cached_checkpoints_fetched_at": null
+}
