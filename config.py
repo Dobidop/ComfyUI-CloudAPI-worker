@@ -47,22 +47,35 @@ def get_base_url():
     return get_config().get("base_url", "https://cloud.comfy.org").rstrip("/")
 
 
-def get_cached_checkpoints():
-    """Return cached checkpoint list (no network). Empty list if never fetched."""
+def get_cached_models(folder):
+    """Return cached model name list for the given folder. Empty if never fetched.
+    Reads from cached_models[folder]; falls back to legacy cached_checkpoints for 'checkpoints'."""
     cfg = get_config()
-    return list(cfg.get("cached_checkpoints") or [])
+    cache = cfg.get("cached_models") or {}
+    if folder in cache:
+        return list(cache[folder])
+    if folder == "checkpoints":
+        return list(cfg.get("cached_checkpoints") or [])
+    return []
 
 
-def update_cached_checkpoints(names):
+def update_cached_models(folder, names):
     cfg = get_config()
-    cfg["cached_checkpoints"] = list(names)
-    cfg["cached_checkpoints_fetched_at"] = int(time.time())
+    cache = cfg.get("cached_models") or {}
+    cache[folder] = list(names)
+    cfg["cached_models"] = cache
+    fetched = cfg.get("cached_models_fetched_at") or {}
+    fetched[folder] = int(time.time())
+    cfg["cached_models_fetched_at"] = fetched
+    if folder == "checkpoints":
+        cfg["cached_checkpoints"] = list(names)
+        cfg["cached_checkpoints_fetched_at"] = int(time.time())
     save_config(cfg)
 
 
-def cache_is_stale():
-    cfg = get_config()
-    ts = cfg.get("cached_checkpoints_fetched_at")
-    if not ts:
-        return True
-    return (time.time() - ts) > CACHE_TTL_SECONDS
+def get_cached_checkpoints():
+    return get_cached_models("checkpoints")
+
+
+def update_cached_checkpoints(names):
+    update_cached_models("checkpoints", names)

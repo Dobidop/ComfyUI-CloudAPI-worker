@@ -1,0 +1,939 @@
+{
+  "id": "9e34d439-786b-43bb-8a29-d74277ce560b",
+  "revision": 0,
+  "last_node_id": 17,
+  "last_link_id": 24,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CloudUNETLoader",
+      "pos": [
+        -530.5550000867443,
+        -1562.4600801475187
+      ],
+      "size": [
+        270,
+        141.3333282470703
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudUNETLoader"
+      },
+      "widgets_values": [
+        "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CloudVAELoader",
+      "pos": [
+        -516.7935473875949,
+        -846.8358621787579
+      ],
+      "size": [
+        270,
+        106.66667175292969
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "links": [
+            16,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudVAELoader"
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CloudLoraLoaderModelOnly",
+      "pos": [
+        -172.78687698181864,
+        -1558.4562441789933
+      ],
+      "size": [
+        311.9333190917969,
+        138.6666717529297
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudLoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CloudLoraLoaderModelOnly",
+      "pos": [
+        -201.1681639957094,
+        -1334.249033021091
+      ],
+      "size": [
+        311.9333190917969,
+        138.6666717529297
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudLoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CloudUNETLoader",
+      "pos": [
+        -519.6628515200539,
+        -1331.978427638331
+      ],
+      "size": [
+        270,
+        141.3333282470703
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudUNETLoader"
+      },
+      "widgets_values": [
+        "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CloudModelSamplingSD3",
+      "pos": [
+        201.46113411478836,
+        -1557.3022053274353
+      ],
+      "size": [
+        280.76666259765625,
+        104
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudModelSamplingSD3"
+      },
+      "widgets_values": [
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CloudKSamplerAdvanced",
+      "pos": [
+        603.9898855384135,
+        -1313.650661444261
+      ],
+      "size": [
+        420.79998779296875,
+        477.1666564941406
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 23
+        },
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "CLOUD_LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudKSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        515736044137275,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "normal",
+        0,
+        2,
+        "enable"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "CloudCLIPTextEncode",
+      "pos": [
+        -8.448486057239961,
+        -1133.6630963847185
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            11,
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudCLIPTextEncode"
+      },
+      "widgets_values": [
+        "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character."
+      ]
+    },
+    {
+      "id": 9,
+      "type": "CloudCLIPLoader",
+      "pos": [
+        -503.58573262507593,
+        -1064.4143841352022
+      ],
+      "size": [
+        337.70001220703125,
+        176
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "links": [
+            8,
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudCLIPLoader"
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CloudCLIPTextEncode",
+      "pos": [
+        9.869504748911027,
+        -885.6230821722586
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            12,
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudCLIPTextEncode"
+      },
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CloudKSamplerAdvanced",
+      "pos": [
+        1060.1504229951815,
+        -1297.222578969133
+      ],
+      "size": [
+        312.3833312988281,
+        442.6666564941406
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 24
+        },
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 12
+        },
+        {
+          "name": "latent_image",
+          "type": "CLOUD_LATENT",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudKSamplerAdvanced"
+      },
+      "widgets_values": [
+        "disable",
+        823063980111894,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "normal",
+        2,
+        4,
+        "disable"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "CloudWanImageToVideo",
+      "pos": [
+        26.007332875944485,
+        -622.2416719134653
+      ],
+      "size": [
+        278.8999938964844,
+        296
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 16
+        },
+        {
+          "name": "start_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "name": "clip_vision_output",
+          "shape": 7,
+          "type": "CLOUD_CLIP_VISION_OUTPUT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudWanImageToVideo"
+      },
+      "widgets_values": [
+        640,
+        640,
+        81,
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -515.5221287303987,
+        -659.1883450253977
+      ],
+      "size": [
+        315,
+        396
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            17
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "video_wan2_2_14B_i2v_input_image.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "CloudVAEDecode",
+      "pos": [
+        1509.9635147662427,
+        -1294.1550891962997
+      ],
+      "size": [
+        270,
+        188
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "CLOUD_LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "prompt_id",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudVAEDecode"
+      },
+      "widgets_values": [
+        3,
+        600
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CreateVideo",
+      "pos": [
+        1822.6884927627739,
+        -1293.5361185547886
+      ],
+      "size": [
+        270,
+        128
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        16
+      ]
+    },
+    {
+      "id": 16,
+      "type": "SaveVideo",
+      "pos": [
+        2178.7420149574687,
+        -1295.939178953099
+      ],
+      "size": [
+        890,
+        1085.3333740234375
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 21
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "SaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "CloudModelSamplingSD3",
+      "pos": [
+        159.04087715878177,
+        -1314.4574763601954
+      ],
+      "size": [
+        280.76666259765625,
+        104
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloudModelSamplingSD3"
+      },
+      "widgets_values": [
+        5
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      2,
+      5,
+      0,
+      4,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      5,
+      12,
+      0,
+      7,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      6,
+      12,
+      1,
+      7,
+      2,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      7,
+      12,
+      2,
+      7,
+      3,
+      "CLOUD_LATENT"
+    ],
+    [
+      8,
+      9,
+      0,
+      8,
+      0,
+      "CLOUD_CLIP"
+    ],
+    [
+      9,
+      9,
+      0,
+      10,
+      0,
+      "CLOUD_CLIP"
+    ],
+    [
+      11,
+      8,
+      0,
+      11,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      12,
+      10,
+      0,
+      11,
+      2,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      13,
+      7,
+      0,
+      11,
+      3,
+      "CLOUD_LATENT"
+    ],
+    [
+      14,
+      8,
+      0,
+      12,
+      0,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      15,
+      10,
+      0,
+      12,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      16,
+      2,
+      0,
+      12,
+      2,
+      "CLOUD_VAE"
+    ],
+    [
+      17,
+      13,
+      0,
+      12,
+      3,
+      "IMAGE"
+    ],
+    [
+      18,
+      11,
+      0,
+      14,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      19,
+      2,
+      0,
+      14,
+      1,
+      "CLOUD_VAE"
+    ],
+    [
+      20,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      15,
+      0,
+      16,
+      0,
+      "VIDEO"
+    ],
+    [
+      22,
+      4,
+      0,
+      17,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      23,
+      17,
+      0,
+      7,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      24,
+      6,
+      0,
+      11,
+      0,
+      "CLOUD_MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.503069230534352,
+      "offset": [
+        895.7184308795084,
+        1940.810925557166
+      ]
+    },
+    "frontendVersion": "1.44.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

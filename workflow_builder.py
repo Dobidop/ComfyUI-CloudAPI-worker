@@ -71,4 +71,24 @@ MODEL_FOLDERS = [
     "checkpoints", "loras", "vae", "embeddings",
     "controlnet", "upscale_models", "clip", "clip_vision",
     "diffusion_models", "unet", "style_models", "hypernetworks",
+    "text_encoders",
+]
+
+UNET_WEIGHT_DTYPES = [
+    "default", "fp8_e4m3fn", "fp8_e4m3fn_fast", "fp8_e5m2",
+]
+
+CLIP_TYPES = [
+    "stable_diffusion", "stable_cascade", "sd3", "stable_audio",
+    "mochi", "ltxv", "pixart", "cosmos", "lumina2", "wan",
+    "hidream", "chroma", "ace", "omnigen2",
+]
+
+DUAL_CLIP_TYPES = [
+    "sdxl", "sd3", "flux", "hunyuan_video", "hidream",
+]
+
+VIDEO_LATENT_FORMATS = [
+    "hunyuan_wan",  # EmptyHunyuanLatentVideo (also works for Wan)
+    "ltxv",         # EmptyLTXVLatentVideo
 ]
