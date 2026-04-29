@@ -1,7 +1,7 @@
 [project]
 name = "cloudapi-worker"
 description = "A set of PoC ComfyUI cloud API nodes for connecting the cloud API with a local ComfyUI instance"
-version = "1.0.0"
+version = "0.1.0"
 license = "MIT" 
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
@@ -29,7 +29,7 @@ Documentation = "https://github.com/Dobidop/ComfyUI-CloudAPI-worker/wiki"
 "Bug Tracker" = "https://github.com/Dobidop/ComfyUI-CloudAPI-worker/issues"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "dobidop"
 DisplayName = "ComfyUI-CloudAPI-worker"
 Icon = ""
 includes = [] 
