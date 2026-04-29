@@ -26,11 +26,15 @@ All nodes appear under the **cloud** category.
 
 **Sampling:** Cloud KSampler, Cloud KSampler Advanced, Cloud KSampler (Quick) *(monolithic txt2img/img2img all-in-one)*
 
-**Terminals:**
-- Cloud VAE Decode *(submits assembled workflow, downloads images)*
-- Cloud Save Video *(submits assembled workflow, downloads MP4 to local output dir)*
+**Cloud-side decoding (non-terminal):** Cloud VAE Decode *(returns CLOUD_IMAGE)*, Cloud LTXV Audio VAE Decode *(returns CLOUD_AUDIO)*, Cloud Create Video *(returns CLOUD_VIDEO)*
 
-**Non-terminal video stack:** Cloud VAE Decode (Ref), Cloud Create Video, Cloud Empty Image, Cloud Get Image Size, Cloud Image Scale By, Cloud Resize Images By Longer Edge
+**Terminals (cloud → local bridges):**
+- Cloud Fetch Images *(CLOUD_IMAGE → IMAGE batch)*
+- Cloud Fetch Audio *(CLOUD_AUDIO → AUDIO)*
+- Cloud Fetch Video *(CLOUD_VIDEO → VIDEO + local file path)*
+- Cloud Save Video *(CLOUD_VIDEO → STRING; saves MP4 to local output dir without wrapping as VIDEO)*
+
+**Image utilities:** Cloud Empty Image, Cloud Get Image Size, Cloud Image Scale By, Cloud Resize Images By Longer Edge
 
 **Sampling primitives:** Cloud CFG Guider, Cloud KSampler Select, Cloud Sampler Custom Advanced, Cloud Random Noise, Cloud Manual Sigmas
 

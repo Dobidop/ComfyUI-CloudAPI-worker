@@ -22,6 +22,7 @@ from .nodes.cloud_materialize_latent   import CloudMaterializeLatent
 from .nodes.cloud_create_video         import CloudCreateVideo
 from .nodes.cloud_fetch_images         import CloudFetchImages
 from .nodes.cloud_fetch_audio          import CloudFetchAudio
+from .nodes.cloud_fetch_video          import CloudFetchVideo
 from .nodes.cloud_save_video           import CloudSaveVideo
 from .nodes.cloud_cfg_guider           import CloudCFGGuider
 from .nodes.cloud_ksampler_select      import CloudKSamplerSelect
@@ -71,6 +72,7 @@ NODE_CLASS_MAPPINGS = {
     "CloudCreateVideo":       CloudCreateVideo,
     "CloudFetchImages":       CloudFetchImages,
     "CloudFetchAudio":        CloudFetchAudio,
+    "CloudFetchVideo":        CloudFetchVideo,
     "CloudSaveVideo":         CloudSaveVideo,
     "CloudCFGGuider":         CloudCFGGuider,
     "CloudKSamplerSelect":    CloudKSamplerSelect,
@@ -121,6 +123,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "CloudCreateVideo":       "Cloud Create Video",
     "CloudFetchImages":       "Cloud Fetch Images",
     "CloudFetchAudio":        "Cloud Fetch Audio",
+    "CloudFetchVideo":        "Cloud Fetch Video",
     "CloudSaveVideo":         "Cloud Save Video",
     "CloudCFGGuider":         "Cloud CFG Guider",
     "CloudKSamplerSelect":    "Cloud KSampler Select",

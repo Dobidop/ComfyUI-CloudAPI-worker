@@ -133,7 +133,7 @@ CLOUD_NODE_OUTPUT_TYPES = {
 CLOUD_TO_FETCH = {
     "CLOUD_IMAGE": ("CloudFetchImages", "images"),
     "CLOUD_AUDIO": ("CloudFetchAudio", "audio"),
-    # CLOUD_VIDEO intentionally absent — use CloudSaveVideo as the explicit terminal.
+    "CLOUD_VIDEO": ("CloudFetchVideo", "video"),
 }
 
 
