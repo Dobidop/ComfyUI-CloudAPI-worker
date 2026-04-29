@@ -29,7 +29,7 @@ Documentation = "https://github.com/Dobidop/ComfyUI-CloudAPI-worker/wiki"
 "Bug Tracker" = "https://github.com/Dobidop/ComfyUI-CloudAPI-worker/issues"
 
 [tool.comfy]
-PublisherId = "dobidop"
+PublisherId = "dobidop-nodes"
 DisplayName = "ComfyUI-CloudAPI-worker"
 Icon = ""
 includes = [] 
