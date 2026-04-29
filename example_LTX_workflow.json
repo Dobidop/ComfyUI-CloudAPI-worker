@@ -1,0 +1,3770 @@
+{
+  "id": "07824bbb-6672-4bb0-ac36-4313a519e35b",
+  "revision": 0,
+  "last_node_id": 378,
+  "last_link_id": 727,
+  "nodes": [
+    {
+      "id": 269,
+      "type": "LoadImage",
+      "pos": [
+        -644.8879252412005,
+        2606.998136787248
+      ],
+      "size": [
+        1030.816650390625,
+        819.933349609375
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            724
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "egyptian_queen.png",
+        "image"
+      ]
+    },
+    {
+      "id": 324,
+      "type": "CloudRandomNoise",
+      "pos": [
+        4067.2281975007263,
+        2638.4317257176444
+      ],
+      "size": [
+        280,
+        80
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "noise",
+          "type": "CLOUD_NOISE",
+          "links": [
+            682
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudRandomNoise",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        42,
+        "fixed"
+      ]
+    },
+    {
+      "id": 325,
+      "type": "CloudRandomNoise",
+      "pos": [
+        2527.1804619050235,
+        2618.4264022313164
+      ],
+      "size": [
+        280,
+        80
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "noise",
+          "type": "CLOUD_NOISE",
+          "links": [
+            642
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudRandomNoise",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1124016649918161,
+        "randomize"
+      ]
+    },
+    {
+      "id": 326,
+      "type": "CloudLTXVConcatAVLatent",
+      "pos": [
+        4077.271256582757,
+        3478.4540639744796
+      ],
+      "size": [
+        280,
+        72
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_latent",
+          "type": "CLOUD_LATENT",
+          "link": 634
+        },
+        {
+          "name": "audio_latent",
+          "type": "CLOUD_LATENT",
+          "link": 635
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            686
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVConcatAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 327,
+      "type": "CloudLTXVAudioVAELoader",
+      "pos": [
+        1027.284671652339,
+        3088.4912035618822
+      ],
+      "size": [
+        430,
+        84
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Audio VAE",
+          "type": "CLOUD_AUDIO_VAE",
+          "links": [
+            672,
+            679
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVAudioVAELoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ltx-2.3-22b-dev-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 328,
+      "type": "CloudKSamplerSelect",
+      "pos": [
+        4067.2281975007263,
+        3088.4912035618822
+      ],
+      "size": [
+        280,
+        82.66666412353516
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sampler",
+          "type": "CLOUD_SAMPLER",
+          "links": [
+            684
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudKSamplerSelect",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "euler_cfg_pp"
+      ]
+    },
+    {
+      "id": 329,
+      "type": "CloudManualSigmas",
+      "pos": [
+        4067.2281975007263,
+        3278.5015455113453
+      ],
+      "size": [
+        280,
+        84
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sigmas",
+          "type": "CLOUD_SIGMAS",
+          "links": [
+            685
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudManualSigmas",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "0.85, 0.7250, 0.4219, 0.0"
+      ]
+    },
+    {
+      "id": 330,
+      "type": "CloudCFGGuider",
+      "pos": [
+        4067.2281975007263,
+        2838.424549203972
+      ],
+      "size": [
+        280,
+        128
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 636
+        },
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 637
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 638
+        }
+      ],
+      "outputs": [
+        {
+          "name": "guider",
+          "type": "CLOUD_GUIDER",
+          "links": [
+            683
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCFGGuider",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 331,
+      "type": "CloudSamplerCustomAdvanced",
+      "pos": [
+        2876.4873149323676,
+        2620.6245492039725
+      ],
+      "size": [
+        263.04998779296875,
+        144
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "CLOUD_NOISE",
+          "link": 642
+        },
+        {
+          "name": "guider",
+          "type": "CLOUD_GUIDER",
+          "link": 643
+        },
+        {
+          "name": "sampler",
+          "type": "CLOUD_SAMPLER",
+          "link": 644
+        },
+        {
+          "name": "sigmas",
+          "type": "CLOUD_SIGMAS",
+          "link": 645
+        },
+        {
+          "name": "latent_image",
+          "type": "CLOUD_LATENT",
+          "link": 646
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "CLOUD_LATENT",
+          "links": [
+            681
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "CLOUD_LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudSamplerCustomAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 332,
+      "type": "CloudLTXVCropGuides",
+      "pos": [
+        3197.2381975007265,
+        2798.3937035618824
+      ],
+      "size": [
+        250,
+        96
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 647
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 648
+        },
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "link": 649
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            637
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            638
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVCropGuides",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 333,
+      "type": "CloudLoraLoaderModelOnly",
+      "pos": [
+        1027.284671652339,
+        2878.455376382927
+      ],
+      "size": [
+        430,
+        114.66667175292969
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 650
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            636,
+            639
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLoraLoaderModelOnly",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ltx-2.3-22b-distilled-lora-384.safetensors",
+        0.5
+      ]
+    },
+    {
+      "id": 334,
+      "type": "CloudResizeImagesByLongerEdge",
+      "pos": [
+        1140.5205172944288,
+        4078.311563974479
+      ],
+      "size": [
+        310,
+        80
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "CLOUD_IMAGE",
+          "link": 705
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "CLOUD_IMAGE",
+          "links": [
+            706
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudResizeImagesByLongerEdge",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1536
+      ]
+    },
+    {
+      "id": 335,
+      "type": "CloudLTXVLatentUpsampler",
+      "pos": [
+        3617.269491446039,
+        2748.400519662957
+      ],
+      "size": [
+        330,
+        96
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "CLOUD_LATENT",
+          "link": 652
+        },
+        {
+          "name": "upscale_model",
+          "type": "CLOUD_LATENT_UPSCALE_MODEL",
+          "link": 653
+        },
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 722
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "CLOUD_LATENT",
+          "links": [
+            657
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVLatentUpsampler",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 336,
+      "type": "CloudLTXVImgToVideoInplace",
+      "pos": [
+        3597.2439323640074,
+        3088.4912035618822
+      ],
+      "size": [
+        300,
+        156
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 723
+        },
+        {
+          "name": "image",
+          "type": "CLOUD_IMAGE",
+          "link": 707
+        },
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "link": 657
+        },
+        {
+          "name": "bypass",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "bypass"
+          },
+          "link": 658
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            634
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVImgToVideoInplace",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1,
+        false
+      ]
+    },
+    {
+      "id": 337,
+      "type": "CloudLTXVPreprocess",
+      "pos": [
+        1539.719653189204,
+        4049.9572109471355
+      ],
+      "size": [
+        290,
+        80
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "CLOUD_IMAGE",
+          "link": 706
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_image",
+          "type": "CLOUD_IMAGE",
+          "links": [
+            707,
+            708
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVPreprocess",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        18
+      ]
+    },
+    {
+      "id": 338,
+      "type": "ResizeImageMaskNode",
+      "pos": [
+        1022.404348166011,
+        3798.357857919792
+      ],
+      "size": [
+        300,
+        216
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "IMAGE,MASK",
+          "link": 725
+        },
+        {
+          "name": "resize_type.width",
+          "type": "INT",
+          "widget": {
+            "name": "resize_type.width"
+          },
+          "link": 660
+        },
+        {
+          "name": "resize_type.height",
+          "type": "INT",
+          "widget": {
+            "name": "resize_type.height"
+          },
+          "link": 661
+        }
+      ],
+      "outputs": [
+        {
+          "name": "resized",
+          "type": "IMAGE",
+          "links": [
+            704
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0",
+        "Node name for S&R": "ResizeImageMaskNode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "scale dimensions",
+        1920,
+        1088,
+        "center",
+        "lanczos"
+      ]
+    },
+    {
+      "id": 339,
+      "type": "CloudKSamplerSelect",
+      "pos": [
+        2527.1804619050235,
+        3028.4348726903004
+      ],
+      "size": [
+        280,
+        82.66666412353516
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sampler",
+          "type": "CLOUD_SAMPLER",
+          "links": [
+            644
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudKSamplerSelect",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "euler_ancestral_cfg_pp"
+      ]
+    },
+    {
+      "id": 341,
+      "type": "Reroute",
+      "pos": [
+        3217.2435209870546,
+        3038.477876382927
+      ],
+      "size": [
+        225,
+        12
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 721
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CLOUD_VAE",
+          "links": [
+            722,
+            723
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false,
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 343,
+      "type": "CloudEmptyLatentVideo",
+      "pos": [
+        2249.3040062165474,
+        3918.732696176628
+      ],
+      "size": [
+        280,
+        210.6666717529297
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 709
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 712
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": 703
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            669
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudEmptyLatentVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ltxv",
+        768,
+        512,
+        97,
+        1
+      ]
+    },
+    {
+      "id": 344,
+      "type": "CloudLTXVImgToVideoInplace",
+      "pos": [
+        2597.2798149323676,
+        3798.357857919792
+      ],
+      "size": [
+        280,
+        156
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 667
+        },
+        {
+          "name": "image",
+          "type": "CLOUD_IMAGE",
+          "link": 708
+        },
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "link": 669
+        },
+        {
+          "name": "bypass",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "bypass"
+          },
+          "link": 670
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            677
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVImgToVideoInplace",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        0.7,
+        false
+      ]
+    },
+    {
+      "id": 345,
+      "type": "CloudLTXVAudioVAEDecode",
+      "pos": [
+        5084.711881156297,
+        3022.246252199879
+      ],
+      "size": [
+        384,
+        72
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "CLOUD_LATENT",
+          "link": 671
+        },
+        {
+          "label": "Audio VAE",
+          "name": "audio_vae",
+          "type": "CLOUD_AUDIO_VAE",
+          "link": 672
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Audio",
+          "type": "CLOUD_AUDIO",
+          "links": [
+            691
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVAudioVAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 347,
+      "type": "PrimitiveInt",
+      "pos": [
+        557.2198518586382,
+        3638.416041818718
+      ],
+      "size": [
+        370,
+        80
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            661,
+            711
+          ]
+        }
+      ],
+      "title": "Height",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        720,
+        "fixed"
+      ]
+    },
+    {
+      "id": 348,
+      "type": "PrimitiveInt",
+      "pos": [
+        546.5919914460405,
+        3934.7248726903
+      ],
+      "size": [
+        370,
+        80
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            713
+          ]
+        }
+      ],
+      "title": "Frame Rate",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        25,
+        "fixed"
+      ]
+    },
+    {
+      "id": 349,
+      "type": "PrimitiveInt",
+      "pos": [
+        557.2198518586382,
+        3268.458541818718
+      ],
+      "size": [
+        370,
+        80
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            702,
+            703
+          ]
+        }
+      ],
+      "title": "Duration",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.7.0",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        121,
+        "fixed"
+      ]
+    },
+    {
+      "id": 350,
+      "type": "PrimitiveBoolean",
+      "pos": [
+        557.2198518586382,
+        3098.4535418187183
+      ],
+      "size": [
+        370,
+        76
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            658,
+            670
+          ]
+        }
+      ],
+      "title": "Switch to Text to Video?",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.0",
+        "Node name for S&R": "PrimitiveBoolean",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 351,
+      "type": "CloudCLIPTextEncode",
+      "pos": [
+        1537.259329702876,
+        2628.3887035618827
+      ],
+      "size": [
+        600,
+        300
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "link": 695
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 696
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            674
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 352,
+      "type": "CloudLTXVConditioning",
+      "pos": [
+        2167.2055357575628,
+        2798.3937035618824
+      ],
+      "size": [
+        280,
+        104
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 674
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 675
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 714
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            640,
+            647
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            641,
+            648
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVConditioning",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 353,
+      "type": "CloudLTXVEmptyLatentAudio",
+      "pos": [
+        2907.221344473383,
+        3948.43818140612
+      ],
+      "size": [
+        280,
+        144
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio_vae",
+          "type": "CLOUD_AUDIO_VAE",
+          "link": 679
+        },
+        {
+          "name": "frames_number",
+          "type": "INT",
+          "widget": {
+            "name": "frames_number"
+          },
+          "link": 702
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 716
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            678
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVEmptyLatentAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        97,
+        25,
+        1
+      ]
+    },
+    {
+      "id": 354,
+      "type": "CloudManualSigmas",
+      "pos": [
+        2527.1804619050235,
+        3208.4828763829273
+      ],
+      "size": [
+        500,
+        84
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sigmas",
+          "type": "CLOUD_SIGMAS",
+          "links": [
+            645
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudManualSigmas",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+      ]
+    },
+    {
+      "id": 355,
+      "type": "CloudLTXVSeparateAVLatent",
+      "pos": [
+        3187.17505052807,
+        2618.4264022313164
+      ],
+      "size": [
+        250,
+        72
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "av_latent",
+          "type": "CLOUD_LATENT",
+          "link": 681
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            649,
+            652
+          ]
+        },
+        {
+          "name": "audio_latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            635
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVSeparateAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 356,
+      "type": "CloudSamplerCustomAdvanced",
+      "pos": [
+        4417.281256582757,
+        2638.4317257176444
+      ],
+      "size": [
+        263.04998779296875,
+        144
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "CLOUD_NOISE",
+          "link": 682
+        },
+        {
+          "name": "guider",
+          "type": "CLOUD_GUIDER",
+          "link": 683
+        },
+        {
+          "name": "sampler",
+          "type": "CLOUD_SAMPLER",
+          "link": 684
+        },
+        {
+          "name": "sigmas",
+          "type": "CLOUD_SIGMAS",
+          "link": 685
+        },
+        {
+          "name": "latent_image",
+          "type": "CLOUD_LATENT",
+          "link": 686
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "CLOUD_LATENT",
+          "links": [
+            687
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "CLOUD_LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudSamplerCustomAdvanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 357,
+      "type": "CloudLTXVSeparateAVLatent",
+      "pos": [
+        4691.91078539135,
+        2972.3917257176445
+      ],
+      "size": [
+        248.4166717529297,
+        72
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "av_latent",
+          "type": "CLOUD_LATENT",
+          "link": 687
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            717
+          ]
+        },
+        {
+          "name": "audio_latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            671
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVSeparateAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 358,
+      "type": "CloudCreateVideo",
+      "pos": [
+        5523.532638418695,
+        2945.4836899929096
+      ],
+      "size": [
+        280,
+        104
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "CLOUD_IMAGE",
+          "link": 719
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "CLOUD_AUDIO",
+          "link": 691
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 715
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "CLOUD_VIDEO",
+          "links": [
+            726
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        24
+      ]
+    },
+    {
+      "id": 359,
+      "type": "CloudLatentUpscaleModelLoader",
+      "pos": [
+        1037.247009909175,
+        3538.4498726903
+      ],
+      "size": [
+        400,
+        82.66666412353516
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT_UPSCALE_MODEL",
+          "type": "CLOUD_LATENT_UPSCALE_MODEL",
+          "links": [
+            653
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLatentUpscaleModelLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
+      ]
+    },
+    {
+      "id": 360,
+      "type": "PrimitiveInt",
+      "pos": [
+        557.2198518586382,
+        3458.38821833239
+      ],
+      "size": [
+        370,
+        80
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            660,
+            710
+          ]
+        }
+      ],
+      "title": "Width",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PrimitiveInt",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1280,
+        "fixed"
+      ]
+    },
+    {
+      "id": 361,
+      "type": "CloudCLIPTextEncode",
+      "pos": [
+        1547.2216679597118,
+        3108.496545511345
+      ],
+      "size": [
+        600,
+        121.5
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "link": 697
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CLOUD_CONDITIONING",
+          "links": [
+            675
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "pc game, console game, video game, cartoon, childish, ugly"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 362,
+      "type": "CloudCFGGuider",
+      "pos": [
+        2527.1804619050235,
+        2798.3937035618824
+      ],
+      "size": [
+        280,
+        128
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "link": 639
+        },
+        {
+          "name": "positive",
+          "type": "CLOUD_CONDITIONING",
+          "link": 640
+        },
+        {
+          "name": "negative",
+          "type": "CLOUD_CONDITIONING",
+          "link": 641
+        }
+      ],
+      "outputs": [
+        {
+          "name": "guider",
+          "type": "CLOUD_GUIDER",
+          "links": [
+            643
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCFGGuider",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 364,
+      "type": "CloudCheckpointLoader",
+      "pos": [
+        1023.412675344966,
+        2618.6683800755545
+      ],
+      "size": [
+        430,
+        130.6666717529297
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CLOUD_MODEL",
+          "links": [
+            650
+          ]
+        },
+        {
+          "name": "clip",
+          "type": "CLOUD_CLIP",
+          "links": []
+        },
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "links": [
+            667,
+            720,
+            721
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudCheckpointLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "ltx-2.3-22b-dev-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 365,
+      "type": "CloudLTXAVTextEncoderLoader",
+      "pos": [
+        1062.112513601802,
+        3259.867552896599
+      ],
+      "size": [
+        430,
+        156
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLOUD_CLIP",
+          "links": [
+            695,
+            697
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXAVTextEncoderLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "gemma_3_12B_it_fp4_mixed.safetensors",
+        "ltx-2.3-22b-dev-fp8.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 366,
+      "type": "CloudLTXVConcatAVLatent",
+      "pos": [
+        3227.286432364008,
+        3818.4640639744794
+      ],
+      "size": [
+        240,
+        72
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_latent",
+          "type": "CLOUD_LATENT",
+          "link": 677
+        },
+        {
+          "name": "audio_latent",
+          "type": "CLOUD_LATENT",
+          "link": 678
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "CLOUD_LATENT",
+          "links": [
+            646
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudLTXVConcatAVLatent",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 367,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        563.9353370881304,
+        2656.8035418187183
+      ],
+      "size": [
+        370,
+        260
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            696
+          ]
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.3",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        },
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Egyptian royal in blue-and-gold headdress and high collar, white dress with golden embroidery and armbands, desert, robot soldiers in formation left and right. She walks steadily forward, head held level and gaze fixed ahead—no dipping or lowering of the head. The camera performs a single, smooth push-in only: starting in a wider shot of her, the robots, and the desert, it moves steadily forward until she is in a medium or medium-close frame, then holds. She stops, posture and head still upright, and says: “The old gods are silent. I am not.” Robot soldiers shift or march in place; sand and fabric move with the wind. No pull-back; the only camera move is the continuous push-in."
+      ]
+    },
+    {
+      "id": 370,
+      "type": "CloudUploadImage",
+      "pos": [
+        1363.7856790375927,
+        3802.371004892448
+      ],
+      "size": [
+        270,
+        84
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 704
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "CLOUD_IMAGE",
+          "links": [
+            705
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudUploadImage"
+      },
+      "widgets_values": [
+        "uploaded.png"
+      ]
+    },
+    {
+      "id": 371,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        1817.2533592438913,
+        3811.7687404881513
+      ],
+      "size": [
+        373.0333251953125,
+        8
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 710
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            709
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5"
+      },
+      "widgets_values": [
+        "a/2"
+      ]
+    },
+    {
+      "id": 372,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        1809.9328740143992,
+        3890.680917001823
+      ],
+      "size": [
+        375.4666748046875,
+        8
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 711
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            712
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5"
+      },
+      "widgets_values": [
+        "a/2"
+      ]
+    },
+    {
+      "id": 373,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        1808.7631975007273,
+        3958.11818140612
+      ],
+      "size": [
+        375.3833312988281,
+        8
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": 713
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            716
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            714,
+            715
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5"
+      },
+      "widgets_values": [
+        "a"
+      ]
+    },
+    {
+      "id": 374,
+      "type": "CloudVAEDecode",
+      "pos": [
+        5085.395230765672,
+        2891.929601809254
+      ],
+      "size": [
+        331,
+        72
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "CLOUD_LATENT",
+          "link": 717
+        },
+        {
+          "name": "vae",
+          "type": "CLOUD_VAE",
+          "link": 720
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "CLOUD_IMAGE",
+          "links": [
+            719
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "2468e45bec116d5cf0cee6e36da4604c55727e9c",
+        "Node name for S&R": "CloudVAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 376,
+      "type": "Reroute",
+      "pos": [
+        417.78755052807185,
+        3822.860357919792
+      ],
+      "size": [
+        225,
+        12
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 724
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            725
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 377,
+      "type": "CloudFetchVideo",
+      "pos": [
+        5845.238751094637,
+        2938.12106433363
+      ],
+      "size": [
+        338.6000061035156,
+        265.3333435058594
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "CLOUD_VIDEO",
+          "link": 726
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            727
+          ]
+        },
+        {
+          "name": "file_path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "prompt_id",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "Dobidop/ComfyUI-CloudAPI-worker",
+        "ver": "32f7c45d54ce2147824c5e9638556dc4392abb72",
+        "Node name for S&R": "CloudFetchVideo"
+      },
+      "widgets_values": [
+        "cloud_fetch_video",
+        "auto",
+        "auto",
+        3,
+        1800
+      ]
+    },
+    {
+      "id": 378,
+      "type": "SaveVideo",
+      "pos": [
+        6216.634544786496,
+        2898.602806924585
+      ],
+      "size": [
+        628.0333251953125,
+        632.7333374023438
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 727
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3"
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      634,
+      336,
+      0,
+      326,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      635,
+      355,
+      1,
+      326,
+      1,
+      "CLOUD_LATENT"
+    ],
+    [
+      636,
+      333,
+      0,
+      330,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      637,
+      332,
+      0,
+      330,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      638,
+      332,
+      1,
+      330,
+      2,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      639,
+      333,
+      0,
+      362,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      640,
+      352,
+      0,
+      362,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      641,
+      352,
+      1,
+      362,
+      2,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      642,
+      325,
+      0,
+      331,
+      0,
+      "CLOUD_NOISE"
+    ],
+    [
+      643,
+      362,
+      0,
+      331,
+      1,
+      "CLOUD_GUIDER"
+    ],
+    [
+      644,
+      339,
+      0,
+      331,
+      2,
+      "CLOUD_SAMPLER"
+    ],
+    [
+      645,
+      354,
+      0,
+      331,
+      3,
+      "CLOUD_SIGMAS"
+    ],
+    [
+      646,
+      366,
+      0,
+      331,
+      4,
+      "CLOUD_LATENT"
+    ],
+    [
+      647,
+      352,
+      0,
+      332,
+      0,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      648,
+      352,
+      1,
+      332,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      649,
+      355,
+      0,
+      332,
+      2,
+      "CLOUD_LATENT"
+    ],
+    [
+      650,
+      364,
+      0,
+      333,
+      0,
+      "CLOUD_MODEL"
+    ],
+    [
+      652,
+      355,
+      0,
+      335,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      653,
+      359,
+      0,
+      335,
+      1,
+      "CLOUD_LATENT_UPSCALE_MODEL"
+    ],
+    [
+      657,
+      335,
+      0,
+      336,
+      2,
+      "CLOUD_LATENT"
+    ],
+    [
+      658,
+      350,
+      0,
+      336,
+      3,
+      "BOOLEAN"
+    ],
+    [
+      660,
+      360,
+      0,
+      338,
+      1,
+      "INT"
+    ],
+    [
+      661,
+      347,
+      0,
+      338,
+      2,
+      "INT"
+    ],
+    [
+      667,
+      364,
+      2,
+      344,
+      0,
+      "CLOUD_VAE"
+    ],
+    [
+      669,
+      343,
+      0,
+      344,
+      2,
+      "CLOUD_LATENT"
+    ],
+    [
+      670,
+      350,
+      0,
+      344,
+      3,
+      "BOOLEAN"
+    ],
+    [
+      671,
+      357,
+      1,
+      345,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      672,
+      327,
+      0,
+      345,
+      1,
+      "CLOUD_VAE"
+    ],
+    [
+      674,
+      351,
+      0,
+      352,
+      0,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      675,
+      361,
+      0,
+      352,
+      1,
+      "CLOUD_CONDITIONING"
+    ],
+    [
+      677,
+      344,
+      0,
+      366,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      678,
+      353,
+      0,
+      366,
+      1,
+      "CLOUD_LATENT"
+    ],
+    [
+      679,
+      327,
+      0,
+      353,
+      0,
+      "CLOUD_VAE"
+    ],
+    [
+      681,
+      331,
+      0,
+      355,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      682,
+      324,
+      0,
+      356,
+      0,
+      "CLOUD_NOISE"
+    ],
+    [
+      683,
+      330,
+      0,
+      356,
+      1,
+      "CLOUD_GUIDER"
+    ],
+    [
+      684,
+      328,
+      0,
+      356,
+      2,
+      "CLOUD_SAMPLER"
+    ],
+    [
+      685,
+      329,
+      0,
+      356,
+      3,
+      "CLOUD_SIGMAS"
+    ],
+    [
+      686,
+      326,
+      0,
+      356,
+      4,
+      "CLOUD_LATENT"
+    ],
+    [
+      687,
+      356,
+      0,
+      357,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      691,
+      345,
+      0,
+      358,
+      1,
+      "CLOUD_AUDIO"
+    ],
+    [
+      695,
+      365,
+      0,
+      351,
+      0,
+      "CLOUD_CLIP"
+    ],
+    [
+      696,
+      367,
+      0,
+      351,
+      1,
+      "STRING"
+    ],
+    [
+      697,
+      365,
+      0,
+      361,
+      0,
+      "CLOUD_CLIP"
+    ],
+    [
+      702,
+      349,
+      0,
+      353,
+      1,
+      "INT"
+    ],
+    [
+      703,
+      349,
+      0,
+      343,
+      2,
+      "INT"
+    ],
+    [
+      704,
+      338,
+      0,
+      370,
+      0,
+      "IMAGE"
+    ],
+    [
+      705,
+      370,
+      0,
+      334,
+      0,
+      "CLOUD_IMAGE"
+    ],
+    [
+      706,
+      334,
+      0,
+      337,
+      0,
+      "CLOUD_IMAGE"
+    ],
+    [
+      707,
+      337,
+      0,
+      336,
+      1,
+      "CLOUD_IMAGE"
+    ],
+    [
+      708,
+      337,
+      0,
+      344,
+      1,
+      "CLOUD_IMAGE"
+    ],
+    [
+      709,
+      371,
+      0,
+      343,
+      0,
+      "INT"
+    ],
+    [
+      710,
+      360,
+      0,
+      371,
+      0,
+      "INT"
+    ],
+    [
+      711,
+      347,
+      0,
+      372,
+      0,
+      "INT"
+    ],
+    [
+      712,
+      372,
+      0,
+      343,
+      1,
+      "INT"
+    ],
+    [
+      713,
+      348,
+      0,
+      373,
+      0,
+      "INT"
+    ],
+    [
+      714,
+      373,
+      1,
+      352,
+      2,
+      "FLOAT"
+    ],
+    [
+      715,
+      373,
+      1,
+      358,
+      2,
+      "FLOAT"
+    ],
+    [
+      716,
+      373,
+      0,
+      353,
+      2,
+      "INT"
+    ],
+    [
+      717,
+      357,
+      0,
+      374,
+      0,
+      "CLOUD_LATENT"
+    ],
+    [
+      719,
+      374,
+      0,
+      358,
+      0,
+      "CLOUD_IMAGE"
+    ],
+    [
+      720,
+      364,
+      2,
+      374,
+      1,
+      "CLOUD_VAE"
+    ],
+    [
+      721,
+      364,
+      2,
+      341,
+      0,
+      "CLOUD_VAE"
+    ],
+    [
+      722,
+      341,
+      0,
+      335,
+      2,
+      "CLOUD_VAE"
+    ],
+    [
+      723,
+      341,
+      0,
+      336,
+      0,
+      "CLOUD_VAE"
+    ],
+    [
+      724,
+      269,
+      0,
+      376,
+      0,
+      "IMAGE"
+    ],
+    [
+      725,
+      376,
+      0,
+      338,
+      0,
+      "IMAGE"
+    ],
+    [
+      726,
+      358,
+      0,
+      377,
+      0,
+      "CLOUD_VIDEO"
+    ],
+    [
+      727,
+      377,
+      0,
+      378,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Model",
+      "bounding": [
+        997.2392978856078,
+        2538.4368714896978,
+        480,
+        1140
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Generate Low Resolution",
+      "bounding": [
+        2497.2392978856064,
+        2538.4368714896978,
+        1000,
+        1140
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Prompt",
+      "bounding": [
+        1507.2392978856076,
+        2538.4368714896978,
+        960,
+        1140
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Generate High Resolution",
+      "bounding": [
+        4037.239297885608,
+        2538.4368714896978,
+        990,
+        1130
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Lantent Upscale",
+      "bounding": [
+        3527.239297885608,
+        2538.4368714896978,
+        480,
+        1130
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 19,
+      "title": "Video Settings",
+      "bounding": [
+        517.2392978856078,
+        2538.4368714896978,
+        460,
+        1610
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 20,
+      "title": "Image Preprocess",
+      "bounding": [
+        997.2392978856078,
+        3708.4368714896987,
+        830,
+        440
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 21,
+      "title": "Empty Latent",
+      "bounding": [
+        2187.2392978856064,
+        3708.4368714896987,
+        1310,
+        450
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 22,
+      "title": "Number conversion",
+      "bounding": [
+        1847.2392978856074,
+        3708.4368714896987,
+        310,
+        440
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 23,
+      "title": "Result",
+      "bounding": [
+        5074.711881156297,
+        2818.329601809254,
+        1828.8321368708039,
+        767.8048060302353
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.37.11",
+    "workflowRendererVersion": "Vue-corrected",
+    "prompt": {
+      "1": {
+        "inputs": {
+          "ckpt_name": "ltx-av-step-1751000_vocoder_24K.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "Load Checkpoint"
+        }
+      },
+      "2": {
+        "inputs": {
+          "gemma_path": "gemma-3-12b-it-qat-q4_0-unquantized_readout_proj/model/model.safetensors",
+          "ltxv_path": "ltx-av-step-1751000_vocoder_24K.safetensors",
+          "max_length": 1024
+        },
+        "class_type": "LTXVGemmaCLIPModelLoader",
+        "_meta": {
+          "title": "🅛🅣🅧 Gemma 3 Model Loader"
+        }
+      },
+      "3": {
+        "inputs": {
+          "text": "",
+          "clip": [
+            "2",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt)"
+        }
+      },
+      "4": {
+        "inputs": {
+          "text": "blurry, low quality, still frame, frames, watermark, overlay, titles, has blurbox, has subtitles",
+          "clip": [
+            "2",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt)"
+        }
+      },
+      "8": {
+        "inputs": {
+          "sampler_name": "euler"
+        },
+        "class_type": "KSamplerSelect",
+        "_meta": {
+          "title": "KSamplerSelect"
+        }
+      },
+      "9": {
+        "inputs": {
+          "steps": 20,
+          "max_shift": 2.05,
+          "base_shift": 0.95,
+          "stretch": true,
+          "terminal": 0.1,
+          "latent": [
+            "28",
+            0
+          ]
+        },
+        "class_type": "LTXVScheduler",
+        "_meta": {
+          "title": "LTXVScheduler"
+        }
+      },
+      "11": {
+        "inputs": {
+          "noise_seed": 10
+        },
+        "class_type": "RandomNoise",
+        "_meta": {
+          "title": "RandomNoise"
+        }
+      },
+      "12": {
+        "inputs": {
+          "samples": [
+            "29",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE Decode"
+        }
+      },
+      "13": {
+        "inputs": {
+          "ckpt_name": "ltx-av-step-1751000_vocoder_24K.safetensors"
+        },
+        "class_type": "LTXVAudioVAELoader",
+        "_meta": {
+          "title": "🅛🅣🅧 LTXV Audio VAE Loader"
+        }
+      },
+      "14": {
+        "inputs": {
+          "samples": [
+            "29",
+            1
+          ],
+          "audio_vae": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "LTXVAudioVAEDecode",
+        "_meta": {
+          "title": "🅛🅣🅧 LTXV Audio VAE Decode"
+        }
+      },
+      "15": {
+        "inputs": {
+          "frame_rate": [
+            "23",
+            0
+          ],
+          "loop_count": 0,
+          "filename_prefix": "AnimateDiff",
+          "format": "video/h264-mp4",
+          "pix_fmt": "yuv420p",
+          "crf": 19,
+          "save_metadata": true,
+          "trim_to_audio": false,
+          "pingpong": false,
+          "save_output": true,
+          "images": [
+            "12",
+            0
+          ],
+          "audio": [
+            "14",
+            0
+          ]
+        },
+        "class_type": "VHS_VideoCombine",
+        "_meta": {
+          "title": "Video Combine 🎥🅥🅗🅢"
+        }
+      },
+      "17": {
+        "inputs": {
+          "skip_blocks": "29",
+          "model": [
+            "28",
+            1
+          ],
+          "positive": [
+            "22",
+            0
+          ],
+          "negative": [
+            "22",
+            1
+          ],
+          "parameters": [
+            "18",
+            0
+          ]
+        },
+        "class_type": "MultimodalGuider",
+        "_meta": {
+          "title": "🅛🅣🅧 Multimodal Guider"
+        }
+      },
+      "18": {
+        "inputs": {
+          "modality": "VIDEO",
+          "cfg": 3,
+          "stg": 0,
+          "rescale": 0,
+          "modality_scale": 3,
+          "parameters": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "GuiderParameters",
+        "_meta": {
+          "title": "🅛🅣🅧 Guider Parameters"
+        }
+      },
+      "19": {
+        "inputs": {
+          "modality": "AUDIO",
+          "cfg": 7,
+          "stg": 0,
+          "rescale": 0,
+          "modality_scale": 3
+        },
+        "class_type": "GuiderParameters",
+        "_meta": {
+          "title": "🅛🅣🅧 Guider Parameters"
+        }
+      },
+      "21": {
+        "inputs": {
+          "audioUI": "",
+          "audio": [
+            "14",
+            0
+          ]
+        },
+        "class_type": "PreviewAudio",
+        "_meta": {
+          "title": "PreviewAudio"
+        }
+      },
+      "22": {
+        "inputs": {
+          "frame_rate": [
+            "23",
+            0
+          ],
+          "positive": [
+            "3",
+            0
+          ],
+          "negative": [
+            "4",
+            0
+          ]
+        },
+        "class_type": "LTXVConditioning",
+        "_meta": {
+          "title": "LTXVConditioning"
+        }
+      },
+      "23": {
+        "inputs": {
+          "value": 25
+        },
+        "class_type": "FloatConstant",
+        "_meta": {
+          "title": "Float Constant"
+        }
+      },
+      "26": {
+        "inputs": {
+          "frames_number": [
+            "27",
+            0
+          ],
+          "frame_rate": [
+            "42",
+            0
+          ],
+          "batch_size": 1
+        },
+        "class_type": "LTXVEmptyLatentAudio",
+        "_meta": {
+          "title": "🅛🅣🅧 LTXV Empty Latent Audio"
+        }
+      },
+      "27": {
+        "inputs": {
+          "value": 105
+        },
+        "class_type": "INTConstant",
+        "_meta": {
+          "title": "INT Constant"
+        }
+      },
+      "28": {
+        "inputs": {
+          "video_latent": [
+            "43",
+            0
+          ],
+          "audio_latent": [
+            "26",
+            0
+          ],
+          "model": [
+            "44",
+            0
+          ]
+        },
+        "class_type": "LTXVConcatAVLatent",
+        "_meta": {
+          "title": "🅛🅣🅧 LTXV Concat AV Latent"
+        }
+      },
+      "29": {
+        "inputs": {
+          "av_latent": [
+            "41",
+            0
+          ],
+          "model": [
+            "28",
+            1
+          ]
+        },
+        "class_type": "LTXVSeparateAVLatent",
+        "_meta": {
+          "title": "🅛🅣🅧 LTXV Separate AV Latent"
+        }
+      },
+      "41": {
+        "inputs": {
+          "noise": [
+            "11",
+            0
+          ],
+          "guider": [
+            "17",
+            0
+          ],
+          "sampler": [
+            "8",
+            0
+          ],
+          "sigmas": [
+            "9",
+            0
+          ],
+          "latent_image": [
+            "28",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "42": {
+        "inputs": {
+          "a": [
+            "23",
+            0
+          ]
+        },
+        "class_type": "CM_FloatToInt",
+        "_meta": {
+          "title": "FloatToInt"
+        }
+      },
+      "43": {
+        "inputs": {
+          "width": 768,
+          "height": 512,
+          "length": [
+            "27",
+            0
+          ],
+          "batch_size": 1
+        },
+        "class_type": "EmptyLTXVLatentVideo",
+        "_meta": {
+          "title": "EmptyLTXVLatentVideo"
+        }
+      },
+      "44": {
+        "inputs": {
+          "torch_compile": true,
+          "disable_backup": false,
+          "model": [
+            "1",
+            0
+          ]
+        },
+        "class_type": "LTXVSequenceParallelMultiGPUPatcher",
+        "_meta": {
+          "title": "LTXVSequenceParallelMultiGPUPatcher"
+        }
+      },
+      "45": {
+        "inputs": {
+          "frame_idx": 0,
+          "strength": 1
+        },
+        "class_type": "LTXVAddGuide",
+        "_meta": {
+          "title": "LTXVAddGuide"
+        }
+      }
+    },
+    "comfy_fork_version": "feature/av_inference@a6994ed1",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 0.23939204936916364,
+      "offset": [
+        1361.643077047472,
+        -1091.6793776217214
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
