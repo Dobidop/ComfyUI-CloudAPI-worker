@@ -26,8 +26,10 @@ class CloudVAEDecode:
     CATEGORY = "cloud"
 
     @classmethod
-    def IS_CHANGED(cls, samples, vae, poll_interval, timeout):
+    def IS_CHANGED(cls, samples=None, vae=None, poll_interval=3.0, timeout=600):
         # Hash the assembled workflow so identical re-queues are cached, but any upstream change re-runs.
+        if samples is None or vae is None or not hasattr(samples, "nodes") or not hasattr(vae, "ref"):
+            return "uninitialized"
         key = json.dumps({
             "nodes": samples.nodes,
             "vae_ref": vae.ref,

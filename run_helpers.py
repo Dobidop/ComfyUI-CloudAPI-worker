@@ -86,3 +86,69 @@ def submit_and_collect_images(workflow_dict, poll_interval=3.0, timeout=600):
         raise RuntimeError(f"Could not download any output images for {prompt_id}")
 
     return stack_tensors(tensors), prompt_id
+
+
+def extract_latent_outputs(history):
+    """Walk history_v2 response and return latent file entries (from SaveLatent nodes).
+    The cloud returns these under outputs[<node_id>].latents = [{filename, subfolder, type}, ...]."""
+    found = []
+
+    def _walk(node):
+        if isinstance(node, dict):
+            latents = node.get("latents")
+            if isinstance(latents, list):
+                for entry in latents:
+                    if isinstance(entry, dict) and (entry.get("filename") or entry.get("name")):
+                        found.append(entry)
+            for k, v in node.items():
+                if k == "latents":
+                    continue
+                _walk(v)
+        elif isinstance(node, list):
+            for x in node:
+                _walk(x)
+
+    _walk(history)
+    return found
+
+
+def submit_and_collect_latent_files(workflow_dict, poll_interval=3.0, timeout=600):
+    """Submit a workflow ending in SaveLatent, return ([latent_file_bytes, ...], prompt_id)."""
+    client = ComfyCloudClient(get_api_key(), get_base_url())
+    prompt_id = client.submit_prompt(workflow_dict)
+    print(f"[CloudAPI] Submitted prompt_id={prompt_id} (latent materialize)")
+
+    last_state = [None]
+    def _log(state, _status):
+        if state != last_state[0]:
+            print(f"[CloudAPI] {prompt_id} -> {state}")
+            last_state[0] = state
+
+    final = client.poll_until_done(prompt_id, interval=poll_interval, timeout=timeout, on_status=_log)
+    if final.get("status") not in client.SUCCESS_STATES:
+        raise RuntimeError(
+            f"Cloud job {prompt_id} ended with status='{final.get('status')}': "
+            f"{final.get('error_message', '(no error message)')}"
+        )
+
+    history = client.get_history(prompt_id)
+    entries = extract_latent_outputs(history)
+    if not entries:
+        print(f"[CloudAPI] No latent outputs found. Raw history (truncated):")
+        try:
+            print(_json.dumps(history, indent=2, default=str)[:4000])
+        except Exception:
+            print(repr(history)[:4000])
+        raise RuntimeError(f"No latent outputs found in history for {prompt_id}.")
+
+    blobs = []
+    for entry in entries:
+        filename = entry.get("filename") or entry.get("name")
+        if not filename:
+            continue
+        file_type = entry.get("type", "output")
+        blobs.append(client.download_view(filename, file_type=file_type))
+
+    if not blobs:
+        raise RuntimeError(f"Could not download any latent files for {prompt_id}")
+    return blobs, prompt_id

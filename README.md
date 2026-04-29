@@ -28,7 +28,9 @@ All nodes appear under the **cloud** category.
 
 **Terminal:** Cloud VAE Decode *(submits assembled workflow, downloads images)*
 
-**Utility:** Cloud List Models *(refreshes a folder's dropdown cache on demand)*
+**Bridge:** Cloud Materialize Latent *(runs the cloud chain so far, downloads the latent as a local LATENT — useful for inserting a local-only operation like a 3rd-party latent upscaler. One-way: comfy-cloud has no LoadLatent support, so a local LATENT can't be pushed back into a cloud chain.)*
+
+**Utility:** Cloud List Models *(refreshes a folder's dropdown cache on demand),* Cloud Convert Workflow *(translates an editor-format local workflow into its cloud equivalent and writes it to ComfyUI's output dir)*
 
 ## Notes
 

@@ -18,6 +18,7 @@ from .nodes.cloud_model_sampling_sd3   import CloudModelSamplingSD3
 from .nodes.cloud_ksampler_advanced    import CloudKSamplerAdvanced
 from .nodes.cloud_wan_image_to_video   import CloudWanImageToVideo
 from .nodes.cloud_convert_workflow     import CloudConvertWorkflow
+from .nodes.cloud_materialize_latent   import CloudMaterializeLatent
 
 NODE_CLASS_MAPPINGS = {
     "CloudKSampler":          CloudKSampler,
@@ -39,6 +40,7 @@ NODE_CLASS_MAPPINGS = {
     "CloudKSamplerAdvanced":  CloudKSamplerAdvanced,
     "CloudWanImageToVideo":   CloudWanImageToVideo,
     "CloudConvertWorkflow":   CloudConvertWorkflow,
+    "CloudMaterializeLatent": CloudMaterializeLatent,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -61,6 +63,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "CloudKSamplerAdvanced":  "Cloud KSampler Advanced",
     "CloudWanImageToVideo":   "Cloud Wan Image To Video",
     "CloudConvertWorkflow":   "Cloud Convert Workflow",
+    "CloudMaterializeLatent": "Cloud Materialize Latent",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
