@@ -19,8 +19,9 @@ from .nodes.cloud_ksampler_advanced    import CloudKSamplerAdvanced
 from .nodes.cloud_wan_image_to_video   import CloudWanImageToVideo
 from .nodes.cloud_convert_workflow     import CloudConvertWorkflow
 from .nodes.cloud_materialize_latent   import CloudMaterializeLatent
-from .nodes.cloud_vae_decode_ref       import CloudVAEDecodeRef
 from .nodes.cloud_create_video         import CloudCreateVideo
+from .nodes.cloud_fetch_images         import CloudFetchImages
+from .nodes.cloud_fetch_audio          import CloudFetchAudio
 from .nodes.cloud_save_video           import CloudSaveVideo
 from .nodes.cloud_cfg_guider           import CloudCFGGuider
 from .nodes.cloud_ksampler_select      import CloudKSamplerSelect
@@ -44,6 +45,7 @@ from .nodes.cloud_ltxv_concat_av_latent import CloudLTXVConcatAVLatent
 from .nodes.cloud_ltxv_separate_av_latent import CloudLTXVSeparateAVLatent
 from .nodes.cloud_ltxv_empty_latent_audio import CloudLTXVEmptyLatentAudio
 from .nodes.cloud_latent_upscale_model_loader import CloudLatentUpscaleModelLoader
+from .nodes.cloud_upload_image         import CloudUploadImage
 
 NODE_CLASS_MAPPINGS = {
     "CloudKSampler":          CloudKSampler,
@@ -66,8 +68,9 @@ NODE_CLASS_MAPPINGS = {
     "CloudWanImageToVideo":   CloudWanImageToVideo,
     "CloudConvertWorkflow":   CloudConvertWorkflow,
     "CloudMaterializeLatent": CloudMaterializeLatent,
-    "CloudVAEDecodeRef":      CloudVAEDecodeRef,
     "CloudCreateVideo":       CloudCreateVideo,
+    "CloudFetchImages":       CloudFetchImages,
+    "CloudFetchAudio":        CloudFetchAudio,
     "CloudSaveVideo":         CloudSaveVideo,
     "CloudCFGGuider":         CloudCFGGuider,
     "CloudKSamplerSelect":    CloudKSamplerSelect,
@@ -91,6 +94,7 @@ NODE_CLASS_MAPPINGS = {
     "CloudLTXVSeparateAVLatent": CloudLTXVSeparateAVLatent,
     "CloudLTXVEmptyLatentAudio": CloudLTXVEmptyLatentAudio,
     "CloudLatentUpscaleModelLoader": CloudLatentUpscaleModelLoader,
+    "CloudUploadImage":       CloudUploadImage,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -114,8 +118,9 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "CloudWanImageToVideo":   "Cloud Wan Image To Video",
     "CloudConvertWorkflow":   "Cloud Convert Workflow",
     "CloudMaterializeLatent": "Cloud Materialize Latent",
-    "CloudVAEDecodeRef":      "Cloud VAE Decode (Ref)",
     "CloudCreateVideo":       "Cloud Create Video",
+    "CloudFetchImages":       "Cloud Fetch Images",
+    "CloudFetchAudio":        "Cloud Fetch Audio",
     "CloudSaveVideo":         "Cloud Save Video",
     "CloudCFGGuider":         "Cloud CFG Guider",
     "CloudKSamplerSelect":    "Cloud KSampler Select",
@@ -139,6 +144,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "CloudLTXVSeparateAVLatent": "Cloud LTXV Separate AV Latent",
     "CloudLTXVEmptyLatentAudio": "Cloud LTXV Empty Latent Audio",
     "CloudLatentUpscaleModelLoader": "Cloud Latent Upscale Model Loader",
+    "CloudUploadImage":       "Cloud Upload Image",
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

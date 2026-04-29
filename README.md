@@ -26,11 +26,25 @@ All nodes appear under the **cloud** category.
 
 **Sampling:** Cloud KSampler, Cloud KSampler Advanced, Cloud KSampler (Quick) *(monolithic txt2img/img2img all-in-one)*
 
-**Terminal:** Cloud VAE Decode *(submits assembled workflow, downloads images)*
+**Terminals:**
+- Cloud VAE Decode *(submits assembled workflow, downloads images)*
+- Cloud Save Video *(submits assembled workflow, downloads MP4 to local output dir)*
 
-**Bridge:** Cloud Materialize Latent *(runs the cloud chain so far, downloads the latent as a local LATENT — useful for inserting a local-only operation like a 3rd-party latent upscaler. One-way: comfy-cloud has no LoadLatent support, so a local LATENT can't be pushed back into a cloud chain.)*
+**Non-terminal video stack:** Cloud VAE Decode (Ref), Cloud Create Video, Cloud Empty Image, Cloud Get Image Size, Cloud Image Scale By, Cloud Resize Images By Longer Edge
 
-**Utility:** Cloud List Models *(refreshes a folder's dropdown cache on demand),* Cloud Convert Workflow *(translates an editor-format local workflow into its cloud equivalent and writes it to ComfyUI's output dir)*
+**Sampling primitives:** Cloud CFG Guider, Cloud KSampler Select, Cloud Sampler Custom Advanced, Cloud Random Noise, Cloud Manual Sigmas
+
+**LTX 2.0 video:** Cloud LTXV Conditioning, Cloud LTXV Scheduler, Cloud LTXV Preprocess, Cloud LTXV Img To Video Inplace, Cloud LTXV Crop Guides, Cloud LTXV Latent Upsampler
+
+**LTX 2.0 audio:** Cloud LTXAV Text Encoder Loader, Cloud LTXV Audio VAE Loader, Cloud LTXV Audio VAE Decode, Cloud LTXV Concat AV Latent, Cloud LTXV Separate AV Latent, Cloud LTXV Empty Latent Audio
+
+**Misc loaders:** Cloud Latent Upscale Model Loader
+
+**Bridges:**
+- Cloud Materialize Latent *(runs the cloud chain so far, downloads the latent as a local LATENT — useful for inserting a local-only operation like a 3rd-party latent upscaler. One-way: comfy-cloud has no LoadLatent support, so a local LATENT can't be pushed back into a cloud chain.)*
+- Cloud Upload Image *(uploads a local IMAGE to the cloud and returns a CLOUD_IMAGE handle — the bridge from local LoadImage into a graph-style cloud chain.)*
+
+**Utility:** Cloud List Models *(refreshes a folder's dropdown cache on demand),* Cloud Convert Workflow *(translates a local workflow JSON into its cloud equivalent and writes it to ComfyUI's output dir; accepts both editor format and **API format** — use API format for any workflow with subgraphs, e.g. LTX 2.0 templates)*
 
 ## Notes
 

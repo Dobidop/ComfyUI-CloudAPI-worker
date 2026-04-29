@@ -89,6 +89,77 @@ def submit_and_collect_images(workflow_dict, poll_interval=3.0, timeout=600):
 
 
 VIDEO_EXTENSIONS = (".mp4", ".webm", ".mov", ".mkv", ".avi", ".webp", ".gif")
+AUDIO_EXTENSIONS = (".flac", ".wav", ".mp3", ".opus", ".ogg", ".m4a", ".aac")
+
+
+def _extract_by_extension(history, extensions):
+    """Walk the history response, collect entries whose filename ends with one of `extensions`."""
+    found = []
+
+    def _walk(node):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for entry in v:
+                        if (isinstance(entry, dict)
+                            and isinstance(entry.get("filename"), str)
+                            and entry["filename"].lower().endswith(extensions)):
+                            found.append(entry)
+                _walk(v)
+        elif isinstance(node, list):
+            for x in node:
+                _walk(x)
+
+    _walk(history)
+    seen, unique = set(), []
+    for entry in found:
+        key = entry.get("filename")
+        if key and key not in seen:
+            seen.add(key)
+            unique.append(entry)
+    return unique
+
+
+def extract_audio_outputs(history):
+    return _extract_by_extension(history, AUDIO_EXTENSIONS)
+
+
+def submit_and_collect_audio_files(workflow_dict, poll_interval=3.0, timeout=600):
+    """Submit a workflow ending in SaveAudio (or similar), return ([(filename, bytes), ...], prompt_id)."""
+    client = ComfyCloudClient(get_api_key(), get_base_url())
+    prompt_id = client.submit_prompt(workflow_dict)
+    print(f"[CloudAPI] Submitted prompt_id={prompt_id} (audio)")
+
+    last_state = [None]
+    def _log(state, _status):
+        if state != last_state[0]:
+            print(f"[CloudAPI] {prompt_id} -> {state}")
+            last_state[0] = state
+
+    final = client.poll_until_done(prompt_id, interval=poll_interval, timeout=timeout, on_status=_log)
+    if final.get("status") not in client.SUCCESS_STATES:
+        raise RuntimeError(
+            f"Cloud job {prompt_id} ended with status='{final.get('status')}': "
+            f"{final.get('error_message', '(no error message)')}"
+        )
+
+    history = client.get_history(prompt_id)
+    entries = extract_audio_outputs(history)
+    if not entries:
+        print(f"[CloudAPI] No audio outputs found. Raw history (truncated):")
+        try:
+            print(_json.dumps(history, indent=2, default=str)[:4000])
+        except Exception:
+            print(repr(history)[:4000])
+        raise RuntimeError(f"No audio outputs found in history for {prompt_id}.")
+
+    pairs = []
+    for entry in entries:
+        filename = entry["filename"]
+        file_type = entry.get("type", "output")
+        data = client.download_view(filename, file_type=file_type)
+        pairs.append((filename, data))
+    return pairs, prompt_id
 
 
 def extract_video_outputs(history):

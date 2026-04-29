@@ -11,6 +11,8 @@ class CloudLTXAVTextEncoderLoader:
         return {
             "required": {
                 "text_encoder": ("STRING", {"default": "umt5_xxl_fp8_e4m3fn_scaled.safetensors"}),
+                "ckpt_name": ("STRING", {"default": "ltx-2-19b-dev-fp8.safetensors"}),
+                "device": ("STRING", {"default": "default"}),
             }
         }
 
@@ -19,6 +21,6 @@ class CloudLTXAVTextEncoderLoader:
     FUNCTION = "run"
     CATEGORY = "cloud"
 
-    def run(self, text_encoder):
-        (handle,) = add_node([], "LTXAVTextEncoderLoader", {"text_encoder": text_encoder})
+    def run(self, text_encoder, ckpt_name, device):
+        (handle,) = add_node([], "LTXAVTextEncoderLoader", {"text_encoder": text_encoder, "ckpt_name": ckpt_name, "device": device})
         return (handle,)

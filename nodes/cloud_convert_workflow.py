@@ -15,12 +15,18 @@ def _safe_filename(name):
 
 
 class CloudConvertWorkflow:
-    """Take a local ComfyUI editor-format workflow JSON and produce a Cloud variant.
+    """Take a local ComfyUI workflow JSON and produce a Cloud variant.
 
-    Paste the contents of a saved workflow .json (the regular Save, NOT 'Save (API Format)')
-    into the input. The node rewrites supported nodes to their Cloud equivalents, leaves
-    boundary nodes (LoadImage / PreviewImage / VHS_VideoCombine / etc.) alone, and saves the
-    converted workflow to ComfyUI's output directory. Open the saved file from there to use it.
+    Accepts either:
+      - **Editor format** (regular Save): top-level 'nodes' array. For workflows with
+        no subgraphs this gives a fully-editable converted graph back, including positions.
+      - **API format** (Save (API Format)): a flat {id: {class_type, inputs}} dict.
+        Required for workflows that contain subgraphs (LTX 2.0 templates etc.) since
+        the converter doesn't expand subgraphs itself — ComfyUI's frontend already
+        flattens them when you save in API format.
+
+    Boundary nodes (LoadImage, PreviewImage, VHS_VideoCombine, notes, etc.) are left alone.
+    The converted workflow is written to ComfyUI's output directory; open it from there to use it.
     """
 
     @classmethod
@@ -46,12 +52,6 @@ class CloudConvertWorkflow:
             workflow = json.loads(workflow_json)
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Could not parse workflow JSON: {e}")
-
-        if "nodes" not in workflow or not isinstance(workflow["nodes"], list):
-            raise RuntimeError(
-                "This doesn't look like an editor-format workflow JSON (no 'nodes' array). "
-                "Use ComfyUI's regular 'Save', not 'Save (API Format)'."
-            )
 
         converted, warnings = convert_workflow(workflow)
 
